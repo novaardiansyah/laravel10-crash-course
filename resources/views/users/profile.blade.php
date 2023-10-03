@@ -7,6 +7,6 @@
   <title>Nova Ardiansyah</title>
 </head>
 <body>
-  Hello World
+  Profile
 </body>
 </html>
