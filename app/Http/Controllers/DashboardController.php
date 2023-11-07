@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Idea;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
   public function index()
   {
-    // $idea = new Idea([
-    //   'content' => 'Hello Youtube'
-    // ]);
-    // $idea->save();
+    $ideas = Idea::orderBy('created_at', 'desc');
+
+    if (request()->has('search')) {
+      $ideas = $ideas->where('content', 'like', '%' . request()->get('search', '') . '%');
+    }
 
     $users = [
       [
@@ -27,7 +27,7 @@ class DashboardController extends Controller
 
     return view('dashboard', [
       'users' => $users,
-      'ideas' => Idea::orderBy('created_at', 'desc')->paginate(3)
+      'ideas' => $ideas->paginate(3)
     ]);
   }
 }
