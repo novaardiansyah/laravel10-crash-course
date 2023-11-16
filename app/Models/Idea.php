@@ -13,4 +13,10 @@ class Idea extends Model
     'content',
     'idea'
   ];
+
+  public function comments()
+  {
+    return $this->hasMany(Comment::class);
+    // return $this->hasMany(Comment::class, 'idea_id', 'id');
+  }
 }
