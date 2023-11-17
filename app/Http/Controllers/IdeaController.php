@@ -11,9 +11,9 @@ class IdeaController extends Controller
     $validate = request()->validate([
       'content' => 'required|min:5|max:240',
     ]);
-
+    
     $validate['user_id'] = auth()->id();
-
+    
     Idea::create($validate);
     return redirect()->route('dashboard')->with('success', 'Idea created successfully');
   }
