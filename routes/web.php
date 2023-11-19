@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,7 @@ Route::resource('idea', IdeaController::class)->only(['show']);
 Route::resource('idea.comment', CommentController::class)->only(['store'])->middleware('auth');
 
 Route::resource('users', UserController::class)->only(['show', 'edit', 'update'])->middleware('auth');
+Route::get('/profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
 
 Route::get('/terms', function() {
   return view('terms');

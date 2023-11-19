@@ -2,16 +2,11 @@
   <div class="px-3 pt-4 pb-2">
     <div class="d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
-        <img style="width:150px" class="me-3 avatar-sm rounded-circle"
-          src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+        <img class="me-3 avatar-sm rounded-circle" src="{{ $user->getImageUrl() }}" alt="{{ $user->name }} Avatar" width="100px" />
         <div>
-          @if ($editing ?? false)
-            <input type="text" name="" id="" value="{{ $user->name }}" class="form-control" />
-          @else 
-            <h3 class="card-title mb-0">
-              <a href="#">{{ $user->name; }}</a>
-            </h3>
-          @endif
+          <h3 class="card-title mb-0">
+            <a href="#">{{ $user->name; }}</a>
+          </h3>
           <span class="fs-6 text-muted">{{ '@' . explode('@', $user->email)[0] }}</span>
         </div>
       </div>
@@ -25,25 +20,13 @@
         @endauth
       </div>
     </div>
-    <div class="px-2 mt-4">
-      <h5 class="fs-5"> About : </h5>
-      
-      @if ($editing ?? false)
-        <div class="mb-3">
-          <textarea class="form-control" id="bio" name="bio" rows="3"></textarea>
-          @error('bio')
-            <span class="fs-6 text-danger mt-2 d-block">{{ $message }}</span>
-          @enderror
-        </div>
 
-        <button class="btn btn-sm btn-dark mb-3">Save</button>
-      @else
-        <p class="fs-6 fw-light">
-          This book is a treatise on the theory of ethics, very popular during the
-          Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes
-          from a line in section 1.10.32.
-        </p>
-      @endif
+    <div class="px-2 mt-4">
+      <h5 class="fs-5">About :</h5>
+      
+      <p class="fs-6 fw-light">
+        {{ $user->bio }}
+      </p>
 
       <div class="d-flex justify-content-start">
         <a href="#" class="fw-light nav-link fs-6 me-3"> 
@@ -61,15 +44,7 @@
           {{ $user->comments()->count() }}  
         </a>
       </div>
-      <div class="mt-3 pb-2">
-        @auth
-          @if (Auth::id() !== $user->id)
-            <button class="btn btn-primary btn-sm"> 
-              Follow 
-            </button>
-          @endif
-        @endauth
-      </div>
+      <div class="mt-3 pb-2"></div>
     </div>
   </div>
 </div>
