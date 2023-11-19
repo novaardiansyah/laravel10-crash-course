@@ -56,13 +56,7 @@
           </a>
         </div>
         <div class="mt-3 pb-2">
-          @auth
-            @if (Auth::id() !== $user->id)
-              <button class="btn btn-primary btn-sm"> 
-                Follow 
-              </button>
-            @endif
-          @endauth
+          {{-- follow button --}}
         </div>
       </div>
     </form>

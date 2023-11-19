@@ -30,7 +30,7 @@ class UserController extends Controller
       $image_path = request()->file('image')->store('profile', 'public');
       $validate['image'] = $image_path;
 
-      Storage::disk('public')->delete($user->image);
+      Storage::disk('public')->delete($user->image ?? '');
     }
 
     $user->update($validate);
