@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RegisterSuccessEmail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -22,12 +24,14 @@ class AuthController extends Controller
     ]);
 
     // * Create the user
-    User::create([
+    $user = User::create([
       'name'     => $validate['name'],
       'email'    => $validate['email'],
       'password' => Hash::make($validate['password'])
     ]);
-    
+
+    Mail::to($user->email)->cc(env('MAIL_CC_ADDRESS', ''))->send(new RegisterSuccessEmail($user));
+
     return redirect()->route('dashboard')->with('success', 'Account created successfully');
   }
 
