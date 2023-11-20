@@ -11,9 +11,10 @@
         <button type="submit" class="btn btn-primary btn-sm">Post Comment</button>
       </div>
     </form>
+
     <hr>
 
-    @foreach ($idea->comments as $comment)
+    @forelse ($idea->comments as $comment)
       <div class="d-flex align-items-start">
         <img style="width:35px" class="me-2 avatar-sm rounded-circle"
           src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Luigi" alt="{{ $comment->user->name }} Avatar">
@@ -27,6 +28,8 @@
           </p>
         </div>
       </div>
-    @endforeach
+    @empty
+      <p class="fs-6 fw-light text-muted">No comments yet...</p>
+    @endforelse
   </div>
 @endauth

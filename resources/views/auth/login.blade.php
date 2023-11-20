@@ -24,7 +24,7 @@
         <label for="remember-me" class="text-dark"></label><br>
         <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit" />
       </div>
-      <div class="text-right mt-2">
+      <div class="text-right mt-3">
         <a href="{{ route('register') }}" class="text-dark">Don't have an account? register here.</a>
       </div>
     </form>
