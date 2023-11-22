@@ -25,9 +25,7 @@ class IdeaController extends Controller
 
   public function edit(Idea $idea)
   {
-    if (auth()->id() !== $idea->user_id) {
-      abort(404, 'Idea not found');
-    }
+    $this->authorize('idea.edit', $idea);
     
     $editing = true;
     return view('idea.show', compact('idea', 'editing'));
@@ -49,9 +47,7 @@ class IdeaController extends Controller
 
   public function destroy(Idea $idea)
   {
-    if (auth()->id() !== $idea->user_id) {
-      abort(404, 'Idea not found');
-    }
+    $this->authorize('idea.delete', $idea);
 
     $idea->delete();
     return redirect()->route('dashboard')->with('success', 'Idea deleted successfully');
