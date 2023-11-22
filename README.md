@@ -54,4 +54,12 @@ Get a glimpse of the app's enchanting world by exploring the current progress at
 <div style="margin-bottom: 5px">
   <img src="public/capture/image-3.png" alt="image-5" style="width: 300px; margin-right: 10px" />
   <img src="public/capture/image-4.png" alt="image-3" style="width: 300px; margin-right: 10px" />
-  </div>
+</div>
+
+## Project Status 🚀 
+
+![stages](https://img.shields.io/badge/stages-production-informational)
+[![information](https://img.shields.io/badge/information-references-informational)](https://github.com/novaardiansyah/laravel10-crash-course/blob/main/references.json)
+![size](https://img.shields.io/github/repo-size/novaardiansyah/laravel10-crash-course?label=size&color=informational)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/novaardiansyah/laravel10-crash-course/blob/main/LICENSE)
+[![last commit](https://img.shields.io/github/last-commit/novaardiansyah/laravel10-crash-course?label=last%20commit&color=informational)](https://github.com/novaardiansyah/laravel10-crash-course/commits/main)
