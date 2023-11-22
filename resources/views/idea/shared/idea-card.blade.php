@@ -11,7 +11,7 @@
       </div>
 
       <div>
-        @can('idea.edit', $idea)
+        @can('update', $idea)
           <form action="{{ route('idea.destroy', $idea->id) }}" method="post">
             @method('delete')
             @csrf
