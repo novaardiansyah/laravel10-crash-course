@@ -15,11 +15,13 @@ class UserController extends Controller
 
   public function edit(User $user)
   {
+    $this->authorize('update', $user);
     return view('users.edit', compact('user'));
   }
 
   public function update(User $user)
   {
+    $this->authorize('update', $user);
     $validate = request()->validate([
       'name'  => 'required|min:3|max:40',
       'bio'   => 'min:3|max:255',

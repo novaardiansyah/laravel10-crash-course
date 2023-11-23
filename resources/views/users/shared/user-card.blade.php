@@ -13,11 +13,9 @@
       {{-- d-flex --}}
 
       <div>
-        @auth
-          @if (Auth::id() === $user->id)
-            <a href="{{ route('users.edit', $user->id) }}">Edit</a>
-          @endif
-        @endauth
+        @can('update', $user)
+          <a href="{{ route('users.edit', $user->id) }}">Edit</a>
+        @endcan
       </div>
     </div>
 
@@ -33,7 +31,7 @@
       </div>
       <div class="mt-3 pb-2">
         @auth
-          @if (Auth::id() !== $user->id)
+          @if (Auth::user()->isNot($user))
             @if (Auth::user()->hasFollow($user))
               <form action="{{ route('users.unfollow', $user->id) }}" method="post">
                 @csrf
