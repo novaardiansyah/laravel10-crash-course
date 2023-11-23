@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,17 +20,14 @@ class UserController extends Controller
     return view('users.edit', compact('user'));
   }
 
-  public function update(User $user)
+  public function update(UpdateUserRequest $request, User $user)
   {
     $this->authorize('update', $user);
-    $validate = request()->validate([
-      'name'  => 'required|min:3|max:40',
-      'bio'   => 'min:3|max:255',
-      'image' => 'image'
-    ]);
 
-    if (request()->has('image')) {
-      $image_path = request()->file('image')->store('profile', 'public');
+    $validate = $request->validated();
+
+    if ($request->has('image')) {
+      $image_path = $request->file('image')->store('profile', 'public');
       $validate['image'] = $image_path;
 
       Storage::disk('public')->delete($user->image ?? '');
