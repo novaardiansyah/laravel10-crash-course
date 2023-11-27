@@ -11,6 +11,7 @@ class Idea extends Model
 
   protected $guarded = ['id', 'created_at', 'updated_at'];
   protected $with = ['user:id,name,email,bio,email,image', 'comments.user:id,name,email,bio,email,image'];
+  protected $withCount = ['likes'];
 
   public function comments()
   {
