@@ -50,6 +50,23 @@ Route::get('/feed', FeedController::class)->middleware('auth')->name('feed');
 
 Route::get('/admin', [AdminDashboardController::class, 'index'])->middleware(['auth', 'can:admin'])->name('admin.dashboard');
 
+Route::group([
+  'prefix'     => 'artisan',
+  'as'         => 'artisan.'
+], function () {
+  Route::get('/symlink', function () {
+    abort(404);
+    // Artisan::call('storage:link');
+    // echo 'Symlink process successfully completed';
+  })->name('symlink');
+
+  Route::get('/migrate', function () {
+    abort(404);
+    // Artisan::call('migrate');
+    // echo 'Migrate process successfully completed';
+  })->name('migrate');
+});
+
 Route::get('/terms', function() {
   return view('terms');
 })->name('terms');
