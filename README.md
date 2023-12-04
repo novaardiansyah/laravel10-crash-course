@@ -44,7 +44,7 @@ Need to chat? Feel free to drop me a line via [Email](mailto:novaardiansyah78@gm
 
 ## Sneak Peek 🌟
 
-Get a glimpse of the app's enchanting world by exploring the current progress at [demo is not available](). Feast your eyes on these snapshots that showcase the app's dynamic essence:
+Get a glimpse of the app's enchanting world by exploring the current progress at [https://basic-laravel10.novaardiansyah.my.id](https://basic-laravel10.novaardiansyah.my.id). Feast your eyes on these snapshots that showcase the app's dynamic essence:
 
 <div style="margin-bottom: 5px">
   <img src="public/capture/image-1.png" alt="image-1" style="width: 300px; margin-right: 10px" />
